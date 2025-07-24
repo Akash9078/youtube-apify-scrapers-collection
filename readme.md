@@ -37,7 +37,7 @@ Before you begin, ensure you have:
 
 - [Apify API Key](https://apify.com?fpr=12vqj) (Free tier available)
 - Basic understanding of REST APIs
-- Optional: [n8n](https://n8n.io) for workflow automation
+- Optional: [n8n](https://n8n.partnerlinks.io/j9dphm7sk1hk) for workflow automation
 
 ### Getting Your Apify API Key
 
