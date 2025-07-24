@@ -213,7 +213,7 @@ The n8n workflow includes:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License
 
 
 
@@ -229,6 +229,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repository if you found it helpful!**
 
-[Get Apify API Key](https://apify.com?fpr=12vqj) | [View Documentation](https://docs.apify.com) | [Report Issues](https://github.com/yourusername/youtube-scrapers-collection/issues)
+[Get Apify API Key](https://apify.com?fpr=12vqj)
 
 </div>
