@@ -50,18 +50,6 @@ Before you begin, ensure you have:
 
 Replace `<YOUR_APIFY_API_KEY>` with your actual Apify API key in all examples below.
 
-### Basic Usage
-
-```bash
-# Test the YouTube comment scraper
-curl -X POST "https://api.apify.com/v2/acts/akash9078~youtube-video-comment-scraper/run-sync-get-dataset-items?token=<YOUR_APIFY_API_KEY>" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "maxComments": 10,
-    "videoLink": "https://youtu.be/5kcaHAuGxmY"
-  }'
-```
-
 ## 🛠 Available Scrapers
 
 ### 1. YouTube Video Comment Scraper
@@ -108,76 +96,6 @@ Generate full-page screenshots of any website.
 - `fullPage` (boolean, optional) - Capture full page (default: true)
 
 ## 📚 API Documentation
-
-### Base URL
-```
-https://api.apify.com/v2/acts/{SCRAPER_ID}/run-sync-get-dataset-items?token={API_KEY}
-```
-
-### Response Format
-All scrapers return JSON arrays with extracted data:
-
-```json
-[
-  {
-    "data": "extracted content",
-    "metadata": {
-      "timestamp": "2024-01-01T00:00:00Z",
-      "source": "youtube.com"
-    }
-  }
-]
-```
-
-## 💡 Usage Examples
-
-### Extract YouTube Comments (Python)
-
-```python
-import requests
-import json
-
-def get_youtube_comments(video_url, max_comments=10, api_key="YOUR_API_KEY"):
-    url = f"https://api.apify.com/v2/acts/akash9078~youtube-video-comment-scraper/run-sync-get-dataset-items?token={api_key}"
-    
-    payload = {
-        "maxComments": max_comments,
-        "videoLink": video_url
-    }
-    
-    response = requests.post(url, json=payload)
-    return response.json()
-
-# Usage
-comments = get_youtube_comments("https://youtu.be/5kcaHAuGxmY", max_comments=50)
-print(json.dumps(comments, indent=2))
-```
-
-### Get Channel Videos (JavaScript/Node.js)
-
-```javascript
-const axios = require('axios');
-
-async function getChannelVideos(channelUrl, apiKey) {
-  const url = `https://api.apify.com/v2/acts/akash9078~youtube-channel-video-scraper/run-sync-get-dataset-items?token=${apiKey}`;
-  
-  const payload = {
-    channelUrl: channelUrl,
-    includeMetadata: true
-  };
-  
-  try {
-    const response = await axios.post(url, payload);
-    return response.data;
-  } catch (error) {
-    console.error('Error:', error.response?.data || error.message);
-  }
-}
-
-// Usage
-getChannelVideos('https://www.youtube.com/@apify', 'YOUR_API_KEY')
-  .then(videos => console.log(videos));
-```
 
 ## 🔥 cURL Commands
 
@@ -233,7 +151,7 @@ curl -X POST "https://api.apify.com/v2/acts/akash9078~full-website-screenshot-ge
 
 ### Import the Workflow
 
-1. Copy the provided n8n workflow JSON
+1. Download the workflow JSON from [n8n-workflow.json](https://drive.google.com/file/d/1Y8_QJdG_GtViUeOMrCDyhw9YCoZCgORo/view?usp=drive_link)
 2. Open your n8n instance
 3. Click **Import from File** or **Import from Clipboard**
 4. Paste the workflow configuration
@@ -246,17 +164,6 @@ The n8n workflow includes:
 - **5 HTTP Request nodes** for different scrapers
 - **Pre-configured endpoints** and parameters
 - **Sticky note** with API key instructions
-
-### Customization
-
-Modify the `jsonBody` parameters in each HTTP Request node:
-
-```json
-{
-  "maxComments": 100,
-  "videoLink": "YOUR_VIDEO_URL"
-}
-```
 
 ## ⚡ Rate Limits & Best Practices
 
@@ -324,44 +231,6 @@ def make_robust_request(url, payload, max_retries=3):
 **Error:** `408 Request Timeout`
 **Solution:** Increase timeout values or retry the request
 
-### Debug Mode
-
-Enable debug mode by adding `debug: true` to your request payload:
-
-```json
-{
-  "videoLink": "https://youtu.be/5kcaHAuGxmY",
-  "maxComments": 10,
-  "debug": true
-}
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/youtube-scrapers-collection.git
-
-# Navigate to directory
-cd youtube-scrapers-collection
-
-# Install dependencies (if any)
-npm install
-
-# Set up your API key
-export APIFY_API_KEY="your_api_key_here"
-```
-
 ## 📈 Use Cases
 
 - **Content Analysis:** Analyze YouTube comments for sentiment analysis
@@ -371,21 +240,6 @@ export APIFY_API_KEY="your_api_key_here"
 - **Web Monitoring:** Generate website screenshots for monitoring changes
 - **SEO Research:** Analyze YouTube video performance and engagement
 
-## 🔐 Security Notes
-
-- **Never commit API keys** to version control
-- **Use environment variables** for sensitive data
-- **Implement proper authentication** in production applications
-- **Monitor API usage** regularly to detect unusual activity
-
-## 📊 Performance Tips
-
-1. **Batch requests** when possible
-2. **Use webhooks** for long-running scraping tasks
-3. **Implement caching** to reduce API calls
-4. **Optimize request parameters** to get only needed data
-5. **Use Apify's dataset API** for large data processing
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -394,8 +248,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌟 Acknowledgments
 
-- [Apify](https://apify.com) for providing robust scraping infrastructure
-- [n8n](https://n8n.io) for workflow automation capabilities
+- [Apify](https://www.apify.com?fpr=12vqj) for providing robust scraping infrastructure
+- [n8n](https://n8n.partnerlinks.io/j9dphm7sk1hk) for workflow automation capabilities
 - The open-source community for continuous inspiration
 
 ---
