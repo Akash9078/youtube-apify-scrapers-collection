@@ -1,8 +1,8 @@
 # 🚀 YouTube & Web Scrapers Collection
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Apify](https://img.shields.io/badge/Powered%20by-Apify-blue)](https://apify.com)
-[![n8n](https://img.shields.io/badge/Built%20with-n8n-FF6D6D)](https://n8n.io)
+[![Apify](https://img.shields.io/badge/Powered%20by-Apify-blue)](https://www.apify.com?fpr=12vqj)
+[![n8n](https://img.shields.io/badge/Built%20with-n8n-FF6D6D)](https://n8n.partnerlinks.io/j9dphm7sk1hk)
 
 > A comprehensive collection of web scrapers powered by Apify APIs for YouTube content extraction, financial data scraping, and website screenshots. Perfect for data analysts, content creators, and developers.
 
