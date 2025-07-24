@@ -18,7 +18,6 @@
 - [n8n Workflow Setup](#-n8n-workflow-setup)
 - [Rate Limits & Best Practices](#-rate-limits--best-practices)
 - [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
 - [License](#-license)
 
 ## ✨ Features
@@ -179,34 +178,6 @@ The n8n workflow includes:
 3. **Use appropriate delays** between requests
 4. **Monitor your usage** in the Apify dashboard
 5. **Handle errors gracefully** in your applications
-
-### Error Handling Example
-
-```python
-import time
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
-
-def make_robust_request(url, payload, max_retries=3):
-    session = requests.Session()
-    retry_strategy = Retry(
-        total=max_retries,
-        backoff_factor=1,
-        status_forcelist=[429, 500, 502, 503, 504],
-    )
-    adapter = HTTPAdapter(max_retries=retry_strategy)
-    session.mount("http://", adapter)
-    session.mount("https://", adapter)
-    
-    try:
-        response = session.post(url, json=payload, timeout=30)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        print(f"Request failed: {e}")
-        return None
-```
 
 ## 🐛 Troubleshooting
 
